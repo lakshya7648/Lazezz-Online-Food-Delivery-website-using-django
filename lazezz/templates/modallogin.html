@@ -1,0 +1,49 @@
+<div class="modal fade" id="login" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h3 class="modal-title" id="exampleModalLabel" style="color:brown;">🍱🍴Log in to Lazezz ?</h3>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div id="back" class="modal-body">
+
+                <form action='/city' method="POST">
+                    {% csrf_token %}
+
+                    <div class="form-group">
+                        <label for="inputmob4" style="color:yellow;font-size: 25px;">Phone No.</label><br>
+                        <input type="text" name="mob" class="form-control" id="inputmob4"
+                            placeholder="Enter Mobile No." onchange="verifymob()" required>
+                            <strong><span id="message1" style="color:red;text-shadow: 1px 2px black;"></span></strong>
+                            <br>
+
+                        <label for="inputPassword4" style="color:yellow;font-size:25px;">Password.</label><br>
+                        <input type="password" name="pwd" class="form-control" id="inputPassword4"
+                            placeholder="Enter Valid Password" onchange="verifyPassword()" required>
+                        <strong><span id="message" style="color:red;text-shadow: 1px 2px black;"></span></strong>
+
+
+                        <hr style="height:2px;color:red;">
+                        <div align="center"><button type="submit" class="btn btn-danger"  >Log in</button></div>
+
+                    </div>
+                </form>
+                <br>
+                <!-- <button type="submit" class="btn btn-primary" align="center;">Sign in</button> -->
+                <div align="center"><strong style="color:white;">
+                        <h5>OR</h5>
+                    </Strong><a class="cbtn" <div align="center"><strong style="color:white;">
+                            <h5>Don't have an account?👇</h5>
+                        </Strong><a class="cbtn" href="{% url 'sign_up' %}"><button class="btn btn-warning">Sign
+                                Up!</button></a>
+
+                </div>
+
+
+
+                <!-- <div class="modal-footer">
+                    <button type="button" class="btn btn-danger" data-bs-dismiss="modal">Close</button>-->
+            </div>
+        </div>
+    </div>
+</div>

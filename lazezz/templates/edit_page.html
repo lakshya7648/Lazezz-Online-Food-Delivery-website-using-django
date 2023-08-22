@@ -1,0 +1,94 @@
+{% include 'header.html' %}
+{% load static %}
+
+{% if done == 0 %}
+<div class="container">
+    <div>
+        <h2 style="font-size: 70px; color:wheat; text-align: center;" style="color:gold">Please make the necessary
+            changes!!</h2>
+        <h5 style="color:coral;">*Please Fill All The Details <br>*All fields are Compulsory</h5>
+    </div>
+    <br>
+    <br>
+    <div>
+        <form method="POST" class="was-validated" enctype="multipart/form-data">
+            {% csrf_token %}
+            <div class="row">
+                <div class="col-sm-6">
+                    <div style="color:yellow; font-size:27px;" class="form-group">
+                        <label for="email">Customer Name. 👇:</label>
+                        <input type="text" class="form-control" id="email" name="nam" value="{{user.name}}" required>
+                        <div class="valid-feedback">Valid</div>
+                        <div class="invalid-feedback">Please Fill Out This Field</div>
+                    </div>
+                </div>
+                <div class="col-sm-6">
+                    <div class="form-group" style="color:yellow; font-size:27px;">
+                        <label for="uname">Phone No. 👇:</label>
+                        <input type="text" class="form-control" id="uname" name="mob" value="{{user.phone}}" required>
+                        <div class="valid-feedback">Valid</div>
+                        <div class="invalid-feedback">Please Fill Out This Field</div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="row">
+                <div class="col-sm-4">
+                    <div class="form-group" style="color:yellow; font-size:27px;">
+                        <label for="pwd">Password 👇:</label>
+                        <input type="password" class="form-control" id="pwd" name="pw1" value="{{user.password}}"
+                            required>
+                        <div class="valid-feedback">Valid</div>
+                        <div class="invalid-feedback">Please Fill Out This Field</div>
+                    </div>
+                </div>
+                <div class="col-sm-4">
+                    <div class="form-group" style="color:yellow; font-size:27px;">
+                        <label for="pwd">Re-Enter Password 👇:</label>
+                        <input type="password" class="form-control" id="pwd" name="pw2" value="{{user.password}}"
+                            required>
+                        <div class="valid-feedback">Valid</div>
+                        <div class="invalid-feedback">Please Fill Out This Field</div>
+                    </div>
+                </div>
+                <div class="col-sm-4">
+                    <div class="form-group form-check" align="center" style="color:yellow; font-size:23px;">
+                        <label class="form-check-label">Profile Pic<input type='file' name='uploadnew'
+                                value="{{user.cimg}}" />
+                            <div class="valid-feedback">New Pic?</div>
+
+                        </label>
+                    </div>
+                </div>
+            </div>
+
+            <hr height="2px">
+            <div align="center">
+                <button type="submit" class="btn btn-outline-primary m-2"
+                    style="font-size:27px; font-family: 'Bruno Ace SC', cursive; ">Save Changes</button>
+            </div>
+        </form>
+    </div>
+
+</div>
+{% endif %}
+{% if done == 1 %}
+<div class="container">
+    <div class="row">
+        <div class="col-md-6">
+            <img src="{% static '/images/changes_saved.gif' %}" align="center" alt="food-image" width="600px"
+                height="600px" class="rounded-circle" style="border:7px solid black;">
+        </div>
+        <div class="col-md-6">
+            <h2 class="text-white" style="font-size: 60px;color:chartreuse;"> Changes made Successfully!!</h2>
+            <hr><br>
+            <a href="logout" style="font-size: 35px;" class="btn btn-lg-square btn-warning">Click Me to Continue and Relogin Again..</a>
+        </div>
+    </div>
+</div>
+
+{% endif %}
+
+
+
+{% include 'footer.html' %}

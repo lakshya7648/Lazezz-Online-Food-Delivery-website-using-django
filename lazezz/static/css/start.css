@@ -1,0 +1,148 @@
+
+  @import url('https://fonts.googleapis.com/css2?family=Abril+Fatface&display=swap');
+
+  /* @import url('https://fonts.googleapis.com/css2?family=Merienda:wght@900&display=swap'); */
+  @import url('https://fonts.googleapis.com/css2?family=Lobster&display=swap');
+
+  @import url('https://fonts.googleapis.com/css2?family=Rubik+Mono+One&display=swap');
+
+  
+  @import url('https://fonts.googleapis.com/css2?family=Rubik+Wet+Paint&display=swap');
+  @import url('https://fonts.googleapis.com/css2?family=Lobster+Two:ital,wght@1,700&display=swap');
+
+
+  @import url('https://fonts.googleapis.com/css2?family=Paytone+One&display=swap');
+
+ 
+
+
+.bg-color{
+ /* background-image: url(images/imageedit_1_5156637890.jpg);  */
+ background-image: url('../images/imageedit_1_5156637890.jpg'); 
+ border-radius: 30px;
+
+}
+i{
+  text-shadow: 3px 3px black;
+}
+#sp{
+  display: block;
+  text-shadow: 2px 2px coral;
+}
+#slogan{
+  text-shadow: 2px 1px black;
+}
+#off{
+  color:chocolate;
+  font-size: 35px;
+  text-shadow: 1px 1px white; 
+  font-weight: 100;
+  font-family: 'Lobster Two', cursive;
+  letter-spacing: 6px;
+}
+.card-text{
+  font-size: 32px;
+  color:crimson;
+  font-weight: 500;
+  text-align: center;
+  text-shadow: 3px 3px yellow;
+  background-color: lightgoldenrodyellow;
+}
+body{
+  background-image: url('../images/hero-bg.jpg');
+ margin-top: 35px;
+ /* font-family: 'Merienda', cursive; */
+ /* font-family: 'Lobster', cursive; */
+ /* font-family: 'Rubik Wet Paint', cursive;
+ letter-spacing: 6px; */
+
+
+}
+
+.navbar{
+/* box-shadow: 2px 2px 2px wheat; */
+ border:2px dotted yellow;
+/* box-shadow: 2px 2px whitesmoke; */
+}
+h1{
+  font-family: 'Rubik Mono One', sans-serif;
+  text-shadow: 2px 1px black;
+}
+
+.nav-item{
+    font-size: x-large;
+    color: white;
+    
+}
+
+
+@keyframes flickerAnimation {
+  0%   { opacity:1; }
+  50%  { opacity:0; }
+  100% { opacity:1; }
+}
+@-o-keyframes flickerAnimation{
+  0%   { opacity:1; }
+  50%  { opacity:0; }
+  100% { opacity:1; }
+}
+@-moz-keyframes flickerAnimation{
+  0%   { opacity:1; }
+  50%  { opacity:0; }
+  100% { opacity:1; }
+}
+@-webkit-keyframes flickerAnimation{
+  0%   { opacity:1; }
+  50%  { opacity:0; }
+  100% { opacity:1; }
+}
+.animate-flicker {
+   -webkit-animation: flickerAnimation 1s infinite;
+   -moz-animation: flickerAnimation 1s infinite;
+   -o-animation: flickerAnimation 1s infinite;
+    animation: flickerAnimation .9s infinite;
+}
+
+
+p{
+  font-family: 'Paytone One', sans-serif;
+}
+
+
+a{
+  text-decoration: none;
+  /* font-family: 'Rubik Wet Paint', cursive; */
+  font-family: 'Abril Fatface', cursive;
+  font-size: 32px;
+  color: white;
+}
+a:hover{
+  color:red;
+}
+a:active{
+  color:orange;
+}
+
+.foot{
+  font-family: 'Rubik Wet Paint', cursive;
+  font-size: 20px;
+  border:2px solid red;
+  border-radius: 23px;
+}
+
+
+
+#foot{
+  background-color: brown;
+  /* background-repeat: no-repeat;
+  background-size: cover; */
+  /* background-position: center; */
+}
+
+.section-title{
+  color:burlywood;
+  font-style: oblique;
+  font-weight: 600;
+  text-shadow: 1px 1px black;
+}
+

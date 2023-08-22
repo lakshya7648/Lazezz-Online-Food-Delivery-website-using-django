@@ -1,0 +1,211 @@
+ /* font for nav items  */
+ @import url('https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@600&display=swap');
+
+ @import url('https://fonts.googleapis.com/css2?family=Rubik+Wet+Paint&display=swap');
+ @import url('https://fonts.googleapis.com/css2?family=Lobster+Two:ital,wght@1,700&display=swap');
+ @import url('https://fonts.googleapis.com/css2?family=Paytone+One&display=swap');
+ @import url('https://fonts.googleapis.com/css2?family=Lobster&display=swap');
+
+
+
+
+ p {
+   font-family: 'Paytone One', sans-serif;
+ }
+
+ body {
+   background-image: url('../images/hero-bg.jpg');
+   margin-top: 35px;
+ }
+
+ #sp {
+   display: block;
+   text-shadow: 2px 2px coral;
+ }
+
+ #slogan {
+   text-shadow: 2px 1px black;
+ }
+
+
+ #logo {
+   background-image: url('../images/imageedit_1_5156637890.jpg');
+   border: 2px solid maroon;
+   border-radius: 30px;
+   box-shadow: 1px 2px black;
+ }
+
+ .nav-link {
+   color: white !important;
+   font-family: 'Space Grotesk', sans-serif;
+   /* word-spacing: 2px; */
+   margin-right: 10px;
+   margin-left: 0px;
+
+ }
+
+ .navbar-toggler {
+   background: red;
+   border: none;
+   padding: 10px 6px;
+   outline: none;
+ }
+
+ .navbar-toggler span {
+   display: block;
+   width: 22px;
+   height: 2px;
+   border: 1px;
+   background: pink;
+
+ }
+
+ .navbar-toggler span+span {
+   margin-top: 4px;
+   width: 10px;
+   margin-left: 4px;
+
+ }
+
+ .navbar-toggler span+span+span {
+   width: 10px;
+   margin-left: 10px;
+
+ }
+
+ .photo {
+   background-image: url('../images/pat.jpg');
+   border: 1px dotted;
+   border-radius: 30px;
+   border-collapse: collapse;
+ }
+
+
+
+ 
+ #myDiv {
+   display: none;
+   text-align: center;
+ }
+
+ a {
+   text-decoration: none;
+   font-family: 'Rubik Wet Paint', cursive;
+   font-size: 32px;
+   color: white;
+ }
+
+ a:hover {
+   color: red;
+ }
+
+ a:active {
+   color: darkgreen;
+ }
+
+ .foot {
+   font-family: 'Rubik Wet Paint', cursive;
+   font-size: 20px;
+   border: 2px solid red;
+   border-radius: 23px;
+ }
+
+
+
+ #foot {
+   background-color: brown;
+   /* background-repeat: no-repeat;
+    background-size: cover; */
+   /* background-position: center; */
+ }
+
+ .section-title {
+   color: burlywood;
+   font-style: oblique;
+   font-weight: 600;
+   text-shadow: 1px 1px black;
+ }
+
+ .card-title {
+   color: yellow;
+   text-shadow: 2px 2px black;
+   text-align: center;
+ }
+
+ @keyframes flickerAnimation {
+   0% {
+     opacity: 1;
+   }
+
+   50% {
+     opacity: 0;
+   }
+
+   100% {
+     opacity: 1;
+   }
+ }
+
+ @-o-keyframes flickerAnimation {
+   0% {
+     opacity: 1;
+   }
+
+   50% {
+     opacity: 0;
+   }
+
+   100% {
+     opacity: 1;
+   }
+ }
+
+ @-moz-keyframes flickerAnimation {
+   0% {
+     opacity: 1;
+   }
+
+   50% {
+     opacity: 0;
+   }
+
+   100% {
+     opacity: 1;
+   }
+ }
+
+ @-webkit-keyframes flickerAnimation {
+   0% {
+     opacity: 1;
+   }
+
+   50% {
+     opacity: 0;
+   }
+
+   100% {
+     opacity: 1;
+   }
+ }
+
+ .animate-flicker {
+   -webkit-animation: flickerAnimation 1s infinite;
+   -moz-animation: flickerAnimation 1s infinite;
+   -o-animation: flickerAnimation 1s infinite;
+   animation: flickerAnimation .9s infinite;
+ }
+
+ .cbtn {
+   color: #F1F8FF;
+   font-family: 'Space Grotesk', sans-serif;
+   font-size: 40px;
+ }
+
+ #back {
+   background-image: url('../images/pat.jpg');
+ }
+
+ i {
+   text-shadow: 3px 3px black;
+ }
+

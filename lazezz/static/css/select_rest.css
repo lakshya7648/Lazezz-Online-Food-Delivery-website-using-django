@@ -1,0 +1,101 @@
+/* top brandsheadings  */
+@import url('https://fonts.googleapis.com/css2?family=Pacifico&display=swap');
+
+
+/* food titles top products */
+ @import url('https://fonts.googleapis.com/css2?family=Alkatra:wght@700&display=swap');
+
+
+ /* top brands names fonts */
+  @import url('https://fonts.googleapis.com/css2?family=Anton&display=swap');
+ 
+  /* @import url('https://fonts.googleapis.com/css2?family=Indie+Flower&display=swap'); */
+  /* font-family: 'Indie Flower', cursive; */
+
+  @import url('https://fonts.googleapis.com/css2?family=Poltawski+Nowy:wght@700&display=swap');
+
+
+#top{
+    color:khaki;
+    text-shadow: 2px 2px black;
+    font-size: 50px;
+    font-family: 'Pacifico', cursive;
+    letter-spacing: 3px;
+}
+
+
+@keyframes flickerAnimation {
+    0%   { opacity:1; }
+    50%  { opacity:0; }
+    100% { opacity:1; }
+  }
+  @-o-keyframes flickerAnimation{
+    0%   { opacity:1; }
+    50%  { opacity:0; }
+    100% { opacity:1; }
+  }
+  @-moz-keyframes flickerAnimation{
+    0%   { opacity:1; }
+    50%  { opacity:0; }
+    100% { opacity:1; }
+  }
+  @-webkit-keyframes flickerAnimation{
+    0%   { opacity:1; }
+    50%  { opacity:0; }
+    100% { opacity:1; }
+  }
+  .animate-flicker {
+     -webkit-animation: flickerAnimation 1s infinite;
+     -moz-animation: flickerAnimation 1s infinite;
+     -o-animation: flickerAnimation 1s infinite;
+      animation: flickerAnimation .9s infinite;
+  }
+ #tex{
+  font-size:50px;
+  font-family: 'Alkatra', cursive;
+ }
+ #tex:hover{
+  font-size:55px;
+  border: 1px dashed lightsalmon;
+  cursor: pointer;
+  text-shadow: 2px 2px black;
+  background-color: red;
+  border-radius: 99px;
+ }
+ 
+ #static_rest{
+  font-size:40px;
+  font-family: 'Anton', sans-serif;
+  color:rgb(255, 255, 48);
+  text-shadow: 2px 2px black;
+ }
+
+ #static_rest:hover{
+  color: chartreuse;
+  cursor: grab;
+ }
+ .card{
+  background-image: url('../images/vector.jpg');
+  
+ }
+ #restnam{
+  font-size: 40px;
+  color:orangered;
+  text-shadow: 2px 2px black;
+  background-color: seashell;
+  border: 2px dashed red;
+  
+ }
+ #restcon{
+  font-size: 25px;
+  color:black;
+  text-shadow: 2px 1px yellow;
+
+ }
+ #choserest{
+  font-size: 26px;
+ }
+ #choserest:hover{
+  font-size: 30px;
+ }
+

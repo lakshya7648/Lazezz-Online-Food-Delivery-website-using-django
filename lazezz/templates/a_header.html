@@ -1,0 +1,196 @@
+<!doctype html>
+<!-- use of carousel- to move image -->
+<html lang="en">
+    {% load static %}
+  <head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<!-- helps to add new font style -->
+<link href="https://fonts.googleapis.com/css2?family=DynaPuff&display=swap" rel="stylesheet">
+<!-- helps to add animation -->
+<link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">    
+
+<title>Home</title>
+<script>
+
+
+
+        function validate_password(){
+            var pd = document.getElementById('pass').value;
+            var lc = 0, num = 0, len = pd.length, sc = 0, uc = 0;
+            for(var i = 0; i < len; i++){
+                if(pd[i] >='a' && pd[i] <= 'z'){
+                    lc++;
+                }
+                else if(pd[i] >='A' && pd[i] <= 'Z'){
+                    uc++;
+                }
+                else if(pd[i] =='@' || pd[i] == '#' || pd[i] == '$'){
+                    sc++;
+                }
+                else if(pd[i] >=0 && pd[i] <= 9){
+                    num++;
+                }
+            }
+            console.log('lc='+lc, 'num = '+num, 'sc='+sc,'uc = '+ uc)
+            if((lc>3) && (uc>=1) && (sc>=1) && (num>=1)){
+                document.getElementById('pass').style.borderColor="green";
+            }else{
+                document.getElementById('pass').style.borderColor="red";
+            }
+        }
+        function showPd(){
+            var state = document.getElementById('show');
+            if(state.checked){
+                document.getElementById('pass').type='text';
+            }else{
+                document.getElementById('pass').type='password';
+            }
+        }
+</script>
+
+
+
+    <style type="text/css">
+        h1
+         { 
+          font-family: 'DynaPuff', cursive;
+          text-align: center;
+          align-content: center;
+          background-color: darkgoldenrod;
+          
+          /* copying the css part also to provide the styling to the assigned font */
+          }
+      
+      .container{
+        margin:100px;
+        display:flex;
+        flex-wrap:wrap;
+        justify-content:space-around;
+    }
+    
+    #uid, #pass{
+        margin-bottom:20px;
+        width:100%;
+        padding:10px;
+        border:1px solid blue;
+        border-radius:4px;
+        font-family:system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+        font-size:20px;
+        outline:none;
+    }
+    
+    #show{
+        font-size:18px;
+        font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        
+    }
+    .btn{
+        display:flex;
+        justify-content: center;
+    }
+    #registerbtn{
+        background:linear-gradient(lightblue, rgb(8, 8, 158));
+        color:white;
+        padding:10px;
+        font-size:20px;
+        font-family:'callibri';
+        border:none;
+        border-radius:5px;
+        cursor:pointer;
+    }
+    #registerbtn:hover{
+        background:linear-gradient(rgb(8, 8, 158), green)
+    }
+
+    .blink{
+          width: 150px;
+          height: 50px;
+          background-color: red;
+          animation: blink 1s infinite;
+        }
+        @keyframes blink{
+          50%{
+            opacity: 0;
+          }
+        }
+
+   
+
+    </style>
+  </head>
+  <body style="background-color: brown;">
+    
+    
+   
+    <!-- COLLAPISABLE BAR -->
+    
+    <div class="container-fluid">
+      <nav class="navbar navbar-expand-sm bg-warning navbar-danger " >
+        
+        
+        <!-- brand logo -->
+
+        <a class="navbar-brand" href="a">
+          <img src="{% static 'images/b.webp' %}" width="40px";>
+        </a>
+
+
+
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#cNavbar">
+         
+          <!-- data target tells the id to which it expands -->
+        <span class="navbar-toggler-icon"></span>
+        </button>
+
+
+
+        <!-- Links  -->
+
+        <div class="collapse navbar-collapse" id="cNavbar">
+           <div class="blink"> <h1>Lazezz</h1></div>
+    <ul class="navbar-nav ml-auto" id="items">
+       {% if request.session.session_key == None %}
+        <li  class="nav-item m-2 ">
+            <a class="nav-link" href="a_login">Login</a>
+        </li>
+
+        <li  class="nav-item m-2">
+            <a class="nav-link" href="asignup">Signup</a>
+        </li>
+        {% else %}
+        <li  class="nav-item m-2">
+            <h4 class="text-dark">Welcome, {{request.session.admin_det.emp_nm}}</h4>
+        </li>
+
+        <li  class="nav-item m-2">
+            <a class="text-danger h5" class="nav-link" href="alogout">Logout</a>
+        </li>
+        {% endif %}
+    </ul>
+    </div>
+</nav>
+</div>  
+    
+  
+
+    <!-- Optional JavaScript -->
+    <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+    <!-- javascript for animation   -->
+<script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+<!-- to be used for animation along with javascript.  -->
+<script>
+  AOS.init();
+</script>
+    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.12.9/dist/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+  
+  </body>
+</html>

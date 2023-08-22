@@ -1,0 +1,482 @@
+<!-- <!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body> -->
+<!-- food name -->
+<!-- {{a}}  -->
+<!-- sid -->
+<!-- {{b}} -->
+<!-- fid -->
+<!-- {{c}} -->
+
+<!-- </body>
+</html> -->
+
+{% load static %}
+{% load cart %}
+
+<!doctype html>
+<html lang="en">
+
+<head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <!-- Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+
+    <title>Welcome,{{ request.session.sess_nm }}:LAzezzz</title>
+
+    <!-- title icon  -->
+    <link rel="icon" href="{% static '/images/newl.png' %}" type="image/x-icon">
+
+    <link rel="stylesheet" href="{% static '/css/location.css' %}">
+    <link rel="stylesheet" href="{% static '/css/my_cart.css' %}">
+
+    <!-- Icon logo-->
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.10.0/css/all.min.css" rel="stylesheet">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.4.1/font/bootstrap-icons.css" rel="stylesheet">
+
+    <!-- font of lazezz -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Bruno+Ace+SC&display=swap" rel="stylesheet">
+
+    <!-- for footer  -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Dancing+Script:wght@700&display=swap" rel="stylesheet">
+
+    <!-- animation -->
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+
+    <!-- <link rel="stylesheet" href="{% static '/css/select_rest.css' %}"> -->
+
+    <!-- font for button -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poltawski+Nowy:wght@700&display=swap" rel="stylesheet">
+</head>
+
+
+<body>
+
+
+
+    {% load static %}
+    <!-- <body onload="myFunction()"> -->
+    <!-- 
+    <div id="loader"></div>
+
+    <div style="display:none;" id="myDiv" class="animate-bottom"> -->
+
+    <div data-aos="flip-up">
+        <nav id="logo" class="navbar navbar-expand-lg navbar-light bg-dark">
+            <div class="container">
+                <a class="navbar-brand" href="#">
+                    <b id="sp" style="color:gold;font-size:55px; font-family: 'Bruno Ace SC', cursive; ;"><i
+                            class="fa fa-utensils me-3"></i>Lazezzz....
+                    </b>
+
+                    <marquee id="slogan" behavior="alternate" direction="" scrollamount="7"
+                        style="color:hotpink;font-size: 25px;font-family: 'Revalia', cursive;">Bs..khate..jao..😆
+                    </marquee>
+
+                </a>
+
+
+                <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
+                    data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent"
+                    aria-expanded="false" aria-label="Toggle navigation">
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                    <span></span>
+
+                </button>
+                <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                    <ul class="navbar-nav ms-auto mb-2 mb-lg-0">
+
+                        <li class="nav-item">
+
+                            <a class="nav-link" style='font-size:20px;'><img width="55" height="55"
+                                    src="https://img.icons8.com/color/48/buy--v2.png" alt="buy--v2" />
+                                <strong
+                                    style="color:yellow; text-shadow: 2px 2px black; font-size: 25px;">{{request.session.sess_nm}}</strong></i>
+                                <br>
+                                <!-- <i>{{ request.session.time }}</i> -->
+                                <i id="time"></i>
+                            </a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="/profile" style='font-size:20px;'><i class='fas fa-key'
+                                    style='font-size:25px;color:lightseagreen;'></i>My Profile+</i></a>
+                        </li>
+
+                        <li class="nav-item">
+                            <a class="nav-link" href="logout" style='font-size:20px;'><i class='fas fa-key'
+                                    style='font-size:25px;color:darksalmon;'></i>Log Out</i></a>
+                        </li>
+                        <!-- <li class="nav-item">
+                        <a class="nav-link" href="{% url 'sign_up' %}" style='font-size:20px;'><i class='fas fa-server'
+                                style='font-size:25px;color:lightblue;'></i>Sign Up?</i></a>
+                    </li> -->
+
+                    </ul>
+                </div>
+
+            </div>
+        </nav>
+    </div>
+    <br>
+    <hr style="height:5px">
+
+    <div class="container">
+        <!-- style="background-image: url('{% static '/images/pro.gif' %}');height:250px;" -->
+        <div class="p-5 text-center bg-image rounded-3"
+            style="background-image: url('{% static '/images/shop.gif' %}');height:250px;">
+            <div data-aos="fade-up" data-aos-anchor-placement="bottom-bottom">
+
+                <div class="mask" style="background-color: rgba(0, 0, 0, 0.6);">
+                    <div class="d-flex justify-content-center align-items-center h-200">
+                        <div class="text-white">
+                            <h1 style="font-size: 65px;" class="mb-3"><strong>Items Details</strong></h1>
+                            <h3 class="mb-3" style="color:yellow;">New Items Discovered,{{ request.session.sess_nm }}
+                                <h3>
+
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+    <div data-aos="flip-left" data-aos-easing="ease-out-cubic" data-aos-duration="2000">
+
+        <div class="container">
+            <div class="border rounded p-4 m-4" style="color:lightpink;">
+                <p class="display-4 text-white pl-4 ml-4">Your Cart</p>
+                <hr style="height:10px">
+                <div class="table-responsive-sm">
+                    <table class="table table-bordered text-dark table-success table-hover" style="font-size:25px;">
+                        <thead>
+                            <tr>
+                                <th>Sno.</th>
+                                <th>Product</th>
+                                <th>Image</th>
+                                <th>Price</th>
+                                <th>Quantity</th>
+                                <th>Total Price</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            {% for product in products %}
+                            <tr>
+                                <td>{{forloop.counter}}</td>
+                                <td>{{product.fname}}</td>
+                                <td><img class="rounded-circle" src="media/{{ product.fimg }}" height="80px"
+                                        alt="no img" />
+                                </td>
+                                <td>&#8377&nbsp;{{product.price}}</td>
+                                <td>{{product|cart_quantity:request.session.cart}}</td>
+                                <td>&#8377&nbsp;{{product|price_total:request.session.cart}}</td>
+                            </tr>
+                            {% endfor %}
+                        </tbody>
+                        <tfoot>
+                            <tr>
+                                <th colspan="3"></th>
+                                <th class="text-center" colspan="1"> Sub Total</th>
+                                <th>&#8377&nbsp;{{products|total_price:request.session.cart}}</th>
+                            </tr>
+                        </tfoot>
+
+                    </table>
+                </div>
+                <hr>
+                <div class="m-3 p-3" align="center">
+                    <a href="#" data-bs-toggle="modal" data-bs-target="#checkout"
+                        class="float-right btn btn-outline-warning border-rounded col-lg-3"
+                        style="font-size:34px; font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;">Place
+                        Order</a>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+
+
+
+    <!-- Footer Start -->
+
+    <div id="foot" class="container-fluid bg-* text-light footer pt-5 mt-5 wow fadeIn" data-wow-delay="0.1s">
+        <div class="container py-5">
+            <div class="row g-5">
+                <div class="col-lg-3 col-md-6">
+                    <h2 style="font-family: 'Dancing Script', cursive;font-style: oblique; font-size: 35px;"
+                        class="section-title ff-secondary text-start text-warning fw-normal mb-4">
+                        Lazezz...Pvt.Limited
+                    </h2>
+                    <a class="btn btn-warning mb-3" data-bs-toggle="modal" data-bs-target="#Aboutus">About Us</a>
+                    <a class="btn btn-warning mb-3" data-bs-toggle="modal" data-bs-target="#Contactus" href="">Contact
+                        Us</a><br>
+                    <a class="btn btn-warning mb-3" data-bs-toggle="modal" data-bs-target="#Reservation"
+                        href="">Reservation</a><br>
+                    <a class="btn btn-warning mb-3" data-bs-toggle="modal" data-bs-target="#Privacy" href="">Privacy
+                        Policy</a><br>
+                    <a class="btn btn-warning mb-3" data-bs-toggle="modal" data-bs-target="#TC" href="">Terms &
+                        Conditions</a><br><br>
+                </div>
+                <div class="col-lg-3 col-md-6">
+                    <h2 style="font-family: 'Dancing Script', cursive;font-style: oblique;font-size: 30px;"
+                        class="section-title ff-secondary text-start text-dark fw-normal mb-4">Contact</h2>
+                    <p class="mb-2"><i class="fa fa-map-marker-alt me-3"></i>LAzezzz..pvt.Limited (KANPUR)</p>
+                    <p class="mb-2"><i class="fa fa-phone-alt me-3"></i>+91-9870533166</p>
+                    <p class="mb-2"><i class="fa fa-envelope me-3"></i>info@lazezz.com</p>
+                    <!-- <div class="d-flex pt-2">
+                    <a class="btn btn-outline-light btn-social" href=""><i class="fab fa-twitter"></i></a>
+                    <a class="btn btn-outline-light btn-social" href=""><i class="fab fa-facebook-f"></i></a>
+                    <a class="btn btn-outline-light btn-social" href=""><i class="fab fa-youtube"></i></a>
+                    <a class="btn btn-outline-light btn-social" href=""><i class="fab fa-linkedin-in"></i></a>
+                </div> -->
+                </div>
+                <div class="col-lg-3 col-md-6">
+                    <h2 style="font-family: 'Dancing Script', cursive; font-style: oblique;"
+                        class="section-title ff-secondary text-start text-dark fw-normal mb-4">Opening</h2>
+                    <h5 class="text-light fw-normal">Monday - Saturday</h5>
+                    <p>09:00AM - 09:00PM</p>
+                    <h5 class="text-light fw-normal">Sunday</h5>
+                    <p>10:00AM - 08:00PM</p>
+                </div>
+                <div class="col-lg-3 col-md-6">
+                    <h2 style="font-family: 'Dancing Script', cursive;font-style: oblique;"
+                        class="section-title ff-secondary text-start text-dark fw-normal mb-4">🍕LAzezz On-</h2>
+
+                    <div data-aos="fade-up" data-aos-duration="3000">
+
+                        <a href=""><img src="{% static '/images/logo1.jpg' %}" width="200px" /></a>
+                        <br><br>
+                        <a href=""><img src="{% static '/images/logo2.jpg' %}" width="200px" /></a>
+                    </div>
+                    <!-- <p>Dolor amet sit justo amet elitr clita ipsum elitr est.</p>
+                <div class="position-relative mx-auto" style="max-width: 400px;">
+                    <input class="form-control border-primary w-100 py-3 ps-4 pe-5" type="text"
+                        placeholder="Your email">
+                    <button type="button"
+                        class="btn btn-primary py-2 position-absolute top-0 end-0 mt-2 me-2">SignUp</button>
+                </div> -->
+                </div>
+            </div>
+        </div>
+
+        <hr style="color:black;height: 12px;">
+        <div class="container">
+            <div class="copyright">
+                <div class="row">
+                    <div class="col-md-6 text-center text-md-start mb-3 mb-md-0">
+                        &copy; <a style="font-size: 20px;font-family:Georgia, 'Times New Roman', Times, serif ;"
+                            class="border-bottom" href="#">LAzezzz @adonis </a> | By continuing past this page, you
+                        agree
+                        to our Terms of Service, Cookie Policy, Privacy Policy and Content Policies. All trademarks are
+                        properties of their respective owners. 2023 © Lazezzz™ Ltd. | All rights reserved.
+                    </div>
+                    <div class="col-md-6 text-center text-md-end">
+                        <div class="footer-menu">
+                            <a style="font-family: Arial, Helvetica, sans-serif;font-size: 15px;   border-right: 2px solid white; padding: 2px 9px 2px 9px;"
+                                href="">Home</a>
+                            <a style="font-family: Arial, Helvetica, sans-serif;font-size: 15px;   border-right: 2px solid white; padding: 2px 9px 2px 9px;"
+                                href="">Cookies</a>
+                            <a style="font-family: Arial, Helvetica, sans-serif;font-size: 15px;   border-right: 2px solid white; padding: 2px 9px 2px 9px;"
+                                href="">Help</a>
+                            <a style="font-family: Arial, Helvetica, sans-serif;font-size: 15px;   border-right: 2px solid white; padding: 2px 9px 2px 9px;"
+                                href="">FAQ's</a>
+
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Back to Top -->
+        <a href="#" class="btn btn-lg btn-secondary btn-lg-square back-to-top"><i class="bi bi-arrow-up"></i></a>
+    </div>
+
+    <div class="modal fade" id="checkout" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+        <div class="modal-dialog modal-xl">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h2 class="modal-title" id="exampleModalLabel" style="color:red;">Please Fill The Details</h2>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body" style="font-size:25px;">
+                    <!-- we are creating form here  -->
+                    <div class="m-2 p-3">
+                        <form action="/checkout" method="POST" style="font-size:25px;">
+                            {% csrf_token %}
+                            <div class="form-group">
+                                <img width="48" height="48" src="https://img.icons8.com/color/48/employee-card.png"
+                                    alt="employee-card" />
+                                <label for="address"><strong>Full Name:</strong></label>
+                                <input type="text" name="address" id="" class="form-control" value="{{request.session.sess_nm}}"
+                                    aria-describedby="helpId" readonly>
+                            </div>
+                            <br>
+                            <div class="form-group">
+                                <img width="48" height="48" src="https://img.icons8.com/color/48/order-delivered.png"
+                                    alt="order-delivered" />
+                                <label for="address"><strong>Address:</strong></label>
+                                <input type="text" name="address" id="" class="form-control"
+                                    placeholder="Enter Correct Address" aria-describedby="helpId" required>
+                            </div>
+                            <br>
+                            <div class="form-group">
+                                <img width="48" height="48" src="https://img.icons8.com/color/48/smartphone.png"
+                                    alt="smartphone" />
+                                <label for="address"><strong>Phone:</strong></label>
+                                <input type="text" name="phone" id="" class="form-control"
+                                    value="{{request.session.ph}}" aria-describedby="helpId" readonly>
+                            </div>
+                            <br>
+                            <div>
+                                <h2>Order Summary</h2>
+
+                                <table class="text-danger" style="font-size: 35px;">
+                                    <tbody>
+                                        <tr>
+                                            <td style="color:teal;">Delivery Charges-> </td>
+                                            <td align="right">&nbsp;<del>&#8377&nbsp;14.99</del></td>
+                                            <td style="color:green;" class="animate-flicker">Free!!</td>
+                                        </tr>
+                                    </tbody>
+                                    <tfoot>
+                                        <tr>
+                                            <td  style="color:teal;">Price Total-> </td>
+                                            <td align="right">&#8377&nbsp;{{products|total_price:request.session.cart}}
+                                            </td>
+                                        </tr>
+                                    </tfoot>
+                                </table>
+                            </div>
+                            <br>
+                            <div class="form-group">
+                                <img width="48" height="48" src="https://img.icons8.com/color/48/merchant-account.png"
+                                    alt="merchant-account" />
+                                <label for="pay"><strong>Payment Methods:</strong></label>
+                                <br>
+                                <strong align="center">Card Accepted</strong>
+                                <hr>
+                                <img width="48" height="48" src="https://img.icons8.com/color/48/visa.png"
+                                    alt="visa" />&nbsp;
+                                <img width="48" height="48" src="https://img.icons8.com/color/48/mastercard.png"
+                                    alt="mastercard" />&nbsp;
+                                <img width="48" height="48" src="https://img.icons8.com/color/48/discover.png"
+                                    alt="discover" />&nbsp;
+                                <img width="48" height="48" src="https://img.icons8.com/color/48/card-security.png"
+                                    alt="card-security" />
+
+                            </div>
+                            <br>
+                            <div class="form-group">
+                                <label for="cname">Name on Card</label>
+                                <input type="text" name="cname" id="" class="form-control" placeholder="YOUR NAME"
+                                    aria-describedby="helpId" required>
+                            </div><br>
+                            <div class="form-group">
+                                <label for="ccnum">Credit card number</label>
+                                <input type="text" name="" id="" class="form-control" placeholder="1111-2222-3333-4444"
+                                    aria-describedby="helpId" required>
+                            </div><br>
+                            <div class="form-group">
+                                <label for="expmonth">Exp Month</label>
+                                <input type="text" name="" id="" class="form-control" placeholder="September"
+                                    aria-describedby="helpId" required>
+                            </div><br>
+                            <div class="form-group">
+                                <label for="expyear">Exp Year</label>
+                                <input type="text" name="" id="" class="form-control" placeholder="2018"
+                                    aria-describedby="helpId" required>
+                            </div><br>
+                            <div class="form-group">
+                                <label for="cvv">CVV</label>
+                                <input type="text" name="" id="" class="form-control" placeholder="352"
+                                    aria-describedby="helpId" required>
+                            </div><br>
+                            <label style="font-size: 15px;">
+                                <input type="checkbox" checked="checked" required checked name="sameadr"><strong style="color:brown;">I Agree To
+                                    All Payment Terms.. with respect</strong>
+                            </label>
+                            <br>
+                            <hr style="color:red; height:4px;">
+                            <div align="center">
+                                <img width="48" height="48" src="https://img.icons8.com/color/48/shop-local.png"
+                                    alt="shop-local" />
+                                <input type="submit" align="center" class="btn btn-outline-success col-lg-6"
+                                    value="Final Check Out">
+                                <img width="48" height="48" src="https://img.icons8.com/color/48/shop-local.png"
+                                    alt="shop-local" />
+                            </div>
+                            <div align="center">
+                                <h3>Or</h3>
+                            </div>
+                            <div align="center">
+                                <img width="48" height="48" src="https://img.icons8.com/emoji/48/bellhop-bell.png"
+                                    alt="bellhop-bell" />
+                                <button align="center" class="btn btn-warning col-lg-6" disabled>Table Booking</button>
+                                <img width="48" height="48" src="https://img.icons8.com/emoji/48/bellhop-bell.png"
+                                    alt="bellhop-bell" /><br>
+                                <strong>..Coming Soon..</strong>
+                            </div>
+
+
+                        </form>
+                    </div>
+
+                </div>
+                <!-- <div class="modal-footer">
+             <h3 align="center">Enjoy with Lazezzz....!!</h3>
+            </div> -->
+            </div>
+        </div>
+    </div>
+    {% include 'modalfooter.html' %}
+
+
+
+    <script>
+
+        `use strict`
+        var datetime = new Date().toLocaleString();;
+        console.log(datetime);
+        document.getElementById("time").textContent = datetime; //it will print on html page
+
+    </script>
+
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+    <script>
+        AOS.init();
+    </script>
+
+    <!-- Optional JavaScript; choose one of the two! -->
+
+    <!-- Option 1: Bootstrap Bundle with Popper -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM"
+        crossorigin="anonymous"></script>
+
+    <!-- Option 2: Separate Popper and Bootstrap JS -->
+    <!--
+<script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.2/dist/umd/popper.min.js" integrity="sha384-IQsoLXl5PILFhosVNubq5LC7Qb9DXgDA9i+tQ8Zj3iwWAwPtgFTxbJ8NT4GN1R8p" crossorigin="anonymous"></script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.min.js" integrity="sha384-cVKIPhGWiC2Al4u+LWgxfKTRIcfu0JTxR+EQDz/bgldoEyl4H0zUF0QKbrJ0EcQF" crossorigin="anonymous"></script>
+-->
+</body>
+
+</html>

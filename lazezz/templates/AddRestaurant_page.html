@@ -1,0 +1,248 @@
+<!doctype html>
+<html lang="en">
+  {% load static %}
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Add your Restaurant</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Arimo:wght@500&family=Castoro+Titling&family=Montserrat:wght@500&family=Pattaya&display=swap" rel="stylesheet">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-KK94CHFLLe+nY2dmCWGMq91rCGa5gtU4mk92HdvYe+M/SXH301p5ILy+dN9+nJOZ" crossorigin="anonymous">
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons&family=Material+Icons+Outlined"
+      rel="stylesheet">
+      <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" />
+    <script>
+        function checklength(){
+            var mob = document.getElementById('floatingInput mob');
+            if(mob.value.length != 10){
+                mob.style.borderColor='red';
+            }else{
+              mob.style.borderColor='green';
+            }
+        }
+    </script>
+    
+  </head>
+  
+  <style>
+    .div_first{
+        background-image:url("{% static 'images/rest_back.jpg' %}");
+        width:100%;
+        height:800px;
+        background-size:cover;
+        display:flex;
+        justify-content: center;
+        align-items: center;
+        opacity:0.8;
+    }
+    .mhd, .subhd{
+        font-size:100px;
+        z-index:3;
+    }
+    .f_text{
+        opacity:1;
+    }
+    .nav-item{
+        padding:8px;
+        font-size:20px;
+    }
+    .nav-link{
+        color:orangered;
+        font-family: 'Arimo', sans-serif;
+    }
+    .nav-item:hover{
+        background-color:orangered;
+    }
+    .nav-link:hover{
+        color:white;
+    }
+    .steps{
+      background-image: url("{% static 'images/steps_back.jpg' %}");
+      height:400px;
+    }
+    @media (max-width:1000px){
+      .steps{
+        height:auto;
+        overflow-wrap: normal;
+      }
+      .mhd, .subhd{
+        font-size:50px;
+      }
+    }
+  </style>
+  <body>
+     <div class="container-fluid p-0">
+        <div class="container-fluid p-0 div_first">
+            <div class="f_text">
+            <h1 class="text-light text-center mhd">Enhance Your Coverage</h1>
+            <h3 class="text-light text-center subhd">By Joining Lazezz</h3>
+        </div>
+        </div>
+        <nav class="navbar navbar-expand-lg sticky-top bg-white p-0" style="border-bottom:3px solid orangered;">
+            <div class="container-fluid">
+              <a class="navbar-brand" href="addrest"><img src="{% static 'images/myLogo.png' %}" alt="Lazeezzz Logo" height="50px" ></a>
+              <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+              </button>
+              <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav">
+                  
+                  <li class="nav-item">
+                    <a class="nav-link" aria-current="page" href="index">
+                      <span class="material-icons" style="font-size:18px; padding-right:3px;">home
+                      </span>Home</a>
+                  </li>
+                  <li class="nav-item">
+                    <a class="nav-link" href="#"> <span class="material-symbols-outlined" style="font-size:18px; padding-right:3px;">
+                      group
+                      </span> About US</a>
+                  </li>
+                  <li class="nav-item">
+                    
+                    <a class="nav-link" href="#">
+                      <span class="material-icons" style="font-size:18px; padding-top:2px;">perm_phone_msg</span>Contact Us</a>
+                  </li>
+                  <!-- <li class="nav-item">
+                    <a class="nav-link disabled">Disabled</a>
+                  </li> -->
+                </ul>
+                <div class="d-flex ms-auto">
+                    <input type="button" value="Already Registered? Login here" class="btn text-white me-3 mb-2 mt-2 w-md-100 w-sm-100 w-xs-100" style="background-color:orangered; /*width:100px;*/" data-bs-toggle="modal" data-bs-target="#exampleModal">
+                    <input type="button" value="Partner With Us" class="btn btn-outline-warning p-2 me-3 mb-2 mt-2 w-md-100 w-sm-100 w-xs-100" style="width:300px;" onclick="window.open('partner');">
+                </div>
+              </div>
+            </div>
+          </nav>
+          <!-- Login Modal -->
+          <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+            <div class="modal-dialog modal-dialog-centered">
+              <div class="modal-content">
+                <div class="modal-header">
+                  <h1 class="modal-title fs-5" id="exampleModalLabel">Login</h1>
+                  <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                  <form action="login_rest" method='POST'>
+                    {% csrf_token %}
+                    <div class="img d-flex justify-content-center" style="margin-bottom:8px;"><img src="{% static 'images/myLogo.png' %}" alt="Logo", height='150px'></div>
+                    <div class="form-floating mb-3" id="mobNum">
+                        <input type="text" name='mobno' class="form-control" id="floatingInput mob" placeholder="XXX-XXX-XXXX" onchange="checklength()" required>
+                        <label for="floatingInput">Mobile Number</label>
+                    </div>
+                    <div class="form-floating mb-3">
+                        <input type="password" name='pass' class="form-control" id="floatingInput" placeholder="........" required>
+                        <label for="floatingInput">Password</label>
+                    </div>
+                  <!-- </form> -->
+                </div>
+                <div class="modal-footer d-flex">
+                  <button type="button" class="btn btn-outline-secondary ms-auto" style="font-family: 'Arimo', sans-serif; font-size:20px;" data-bs-dismiss="modal">Cancel</button>
+                  <button type="submit" class="btn text-white me-auto p-2" style="background-color:orangered; width:100px; font-family: 'Arimo', sans-serif; font-size:20px;">Login</button>
+                </div>
+              </form>
+              </div>
+            </div>
+          </div>
+          <div class="container row mx-auto m-5 p-3 shadow border" data-aos="fade-up">
+                <div class="col-md-12 row">
+                  <div class="side-img col-md-6" data-aos="flip-left" data-aos-duration="3000">
+                    <img src="{% static 'images/sideimg2_addRest.jpg' %}" class="img-fluid" alt="customer" width="500px">
+                  </div>
+                  <div class="side-cont col-md-6 p-2" data-aos='zoom-in' style="font-family: 'Pattaya', sans-serif; font-size:30px;">
+                    <p>With Online Product delivery and table booking features, you will cover a large customer base from all areas of society.<br>
+                    Large customer coverage will bring your business to at its zenith and your products quality will make your customers happy</p>
+                  </div>
+                </div>
+                <div class="col-md-12 row">
+                  <div class="side-cont col-md-6 p-2" data-aos='zoom-out' style="font-family: 'Pattaya', sans-serif; font-size:30px;">
+                    <p>With exciting offers and discounts provided, you will attain a large customer coverage and this coverage will be a path for your product likings, ultimately leading to the popularity of your brand. <br>
+                    This will help you to increase your revenue by expanding your food business online.</p>
+                  </div>
+                  <div class="side-img col-md-6" data-aos="flip-right" data-aos-duration="3000">
+                    <img src="{% static 'images/sideimg3_addRest.jpg' %}" class="img-fluid" alt="Brand" width="500px">
+                  </div>
+                </div>
+          </div>
+          <div class="container-fluid steps">
+            <h1 style="font-family:'Pattaya'; font-size:50px; text-align:center; padding-top:10px; margin-top:50px;">How it Works?</h1>
+            <div class="row" style="position:relative;">
+              <div class="col-md-3" style="z-index:1; position:relative; left:200px; top:100px;">
+                <div class="card shadow card-fluid" height="100px" >
+                    <div class="d-flex justify-content-center p-2"><img src="{% static 'images/accountCreate.png' %}" class="img-fluid" width="200px" alt="Login"></div>
+                    <div class="card-body">
+                      <h4 class="text-center" style="font-size:30px; color:orangered;">Create Your Account</h4>
+                      <p class="text-center" style="font-family: 'Montserrat', sans-serif; padding:8px; font-size:20px;">Upon Account Creation, your request is sent to <strong style="font-family:'Pattaya'; font-size:30px;">Lazeezzz</strong></p>
+                        <!-- <button class="btn btn-warning d-grid gap-2 mt-2" type="Button"></button> -->
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-3" style="z-index:1; position:relative; left:220px; top:100px;">
+              <div class="card shadow" height="100px" >
+                  <div class="d-flex justify-content-center p-2"><img src="{% static 'images/partnership.avif' %}" width="300px" class="img-fluid" alt="Login"></div>
+                  <div class="card-body">
+                    <h4 class="text-center" style="font-size:30px; color:orangered;">Verification</h4>
+                    <p class="text-center" style="font-family: 'Montserrat', sans-serif; padding:8px; font-size:20px;">After Submission, your details are verified by<strong style="font-family:'Pattaya'; font-size:30px;">Lazeezzz</strong> Verifiers</p>
+                      <!-- <button class="btn btn-warning d-grid gap-2 mt-2" type="Button"></button> -->
+                  </div>
+              </div>
+          </div>
+          <div class="col-md-3" style="z-index:1; position:relative; left:220px; top:100px;">
+            <div class="card shadow" height="100px" >
+                <div class="d-flex justify-content-center p-2"><img src="{% static 'images/verified.png' %}" class="img-fluid" width="140px" alt="Login"></div>
+                <div class="card-body">
+                  <h4 class="text-center" style="font-size:30px; color:orangered;">Start Working Online</h4>
+                  <p class="text-center" style="font-family: 'Montserrat', sans-serif; padding:8px; font-size:20px;">After Verification <strong style="font-family:'Pattaya'; font-size:30px;">Lazeezzz</strong> authorises you to use your admin portal to upload your items</p>
+                    <!-- <button class="btn btn-warning d-grid gap-2 mt-2" type="Button"></button> -->
+                </div>
+            </div>
+        </div>
+            </div>
+          </div>
+        <div class="container shadow" style="margin-top:300px;margin-bottom:100px;">
+          <h1 class="text-center pt-3" style="font-family:'Pattaya'; font-size:50px;">Documents Required</h1>
+          <div class="row p-2 m-2">
+            <div class="col-md-6  m-auto p-3" style="border-radius:4px; font-family:'Montserrat'; font-size:30px; text-align:center;">Mobile Number</div>
+            <div class="col-md-6  m-auto p-3" style="border-radius:4px; font-family:'Montserrat'; font-size:30px;text-align:center;">Restaurant Name</div>
+            <div class="col-md-6  m-auto p-3" style="border-radius:4px; font-family:'Montserrat'; font-size:30px; text-align:center;">Aadhaar Number</div>
+            <div class="col-md-6  m-auto p-3" style="border-radius:4px; font-family:'Montserrat'; font-size:30px;text-align:center;">PAN Card</div>
+            <div class="col-md-6  m-auto p-3" style="border-radius:4px; font-family:'Montserrat'; font-size:30px;text-align:center;">GSTIN Number</div>
+            <div class="col-md-6  m-auto p-3" style="border-radius:4px; font-family:'Montserrat'; font-size:30px;text-align:center;">FSSAI Number</div>
+            <div class="col-md-6  m-auto p-3" style="border-radius:4px; font-family:'Montserrat'; font-size:30px;text-align:center;">Your Restaurant Menu</div>
+            <div class="col-md-6  m-auto p-3" style="border-radius:4px; font-family:'Montserrat'; font-size:30px;text-align:center;">Images</div>
+          </div>
+        </div>
+        <div class="container shadow mb-3 p-5">
+          <h3>By Joining Lazezz You Confirm to our terms and conditions below</h3>
+          <div class="accordion accordion-flush" id="accordionFlushExample">
+            <div class="accordion-item">
+              <h2 class="accordion-header">
+                <button class="accordion-button collapsed bg-danger text-light fs-5" type="button" data-bs-toggle="collapse" data-bs-target="#flush-collapseOne" aria-expanded="false" aria-controls="flush-collapseOne">
+                  Terms & Conditions
+                </button>
+              </h2>
+              <div id="flush-collapseOne" class="accordion-collapse collapse border border-primary" data-bs-parent="#accordionFlushExample">
+                <div class="accordion-body">Placeholder content for this accordion, which is intended to demonstrate the <code>.accordion-flush</code> class. This is the first item's accordion body.</div>
+              </div>
+            </div>
+            </div>
+        </div>
+        <div class="container-fluid" style="background-color:rgb(255, 213, 198);">
+            <div class="row mx-2">
+              <div class="col-md-4"><img src="{% static 'images/myLogo.png' %}" class="p-2 m-2" alt="Lazeezzz Logo">
+              <h5 class="text-center" style="display:inline-block; width:200px; padding:3px; margin-left:12px;">Designed by Lakshya Kumar, Aditya Sharma, Manan Ravi</h5></div>
+              <div class="col-md-8 m-3 p-3">
+                    <!-- Links to be added here -->
+              </div>
+            </div>
+        </div>
+     </div>
+     
+     <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+     <script>
+      AOS.init();
+    </script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ENjdO4Dr2bkBIFxQpeoTz1HIcje39Wm4jDKdf19U8gI4ddQ3GYNS7NTKfAdVQSZe" crossorigin="anonymous"></script>
+  </body>
+  </html>

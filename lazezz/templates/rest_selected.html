@@ -1,0 +1,493 @@
+{% load static %}
+{% load cart %}
+<!doctype html>
+<html lang="en">
+
+<head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <!-- Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+
+    <title>Welcome,{{ request.session.sess_nm }}:LAzezzz</title>
+
+    <!-- title icon  -->
+    <link rel="icon" href="{% static '/images/newl.png' %}" type="image/x-icon">
+
+    <link rel="stylesheet" href="{% static '/css/location.css' %}">
+
+    <!-- Icon logo-->
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.10.0/css/all.min.css" rel="stylesheet">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.4.1/font/bootstrap-icons.css" rel="stylesheet">
+
+    <!-- font of lazezz -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Bruno+Ace+SC&display=swap" rel="stylesheet">
+
+
+    <!-- font of india text  -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Righteous&display=swap" rel="stylesheet">
+
+
+    <!-- for footer  -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Dancing+Script:wght@700&display=swap" rel="stylesheet">
+
+    <!-- animation -->
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+
+    <link rel="stylesheet" href="{% static '/css/select_rest.css' %}">
+    <link rel="stylesheet" href="{% static '/css/rest_selected.css' %}">
+
+    <!-- font for button -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poltawski+Nowy:wght@700&display=swap" rel="stylesheet">
+
+    <style type="text/css">
+        .wrapper {
+            display: flex;
+        }
+    </style>
+</head>
+
+
+
+
+
+<body>
+
+    <div data-aos="flip-up">
+        <nav id="logo" class="navbar navbar-expand-lg navbar-light bg-dark">
+            <div class="container">
+                <a class="navbar-brand" href="#">
+                    <b id="sp" style="color:gold;font-size:55px; font-family: 'Bruno Ace SC', cursive; ;"><i
+                            class="fa fa-utensils me-3"></i>Lazezzz....
+                    </b>
+
+                    <marquee id="slogan" behavior="alternate" direction="" scrollamount="7"
+                        style="color:hotpink;font-size: 25px;font-family: 'Revalia', cursive;">Bs..khate..jao..😆
+                    </marquee>
+
+                </a>
+
+
+                <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
+                    data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent"
+                    aria-expanded="false" aria-label="Toggle navigation">
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                    <span></span>
+
+                </button>
+                <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                    <ul class="navbar-nav ms-auto mb-2 mb-lg-0">
+
+                        <li class="nav-item">
+
+                            <a class="nav-link" style='font-size:20px;'><i class='fas fa-home'style='font-size:25px;color:red;'></i><strong>नमस्ते,</strong><strong style="color:yellow; text-shadow: 2px 2px black; font-size: 25px;">{{ request.session.sess_nm }}</strong></i>
+                                <br>
+                                <i id="time"></i>
+
+                            </a>
+                        </li>
+
+                        <li class="nav-item">
+
+                            <a class="nav-link" class="" href="/cart"><i style="color:khaki;"
+                                    class="fas fa-shopping-cart"></i><span
+                                    class="badge  rounded-pill bg-danger">{{count}}</span>
+                                <!-- <span class="badge rounded-pill badge-notification bg-danger">1</span> -->
+                            </a>
+                        </li>
+                        <li class="nav-item">
+
+                            <form class="d-flex nav-link">
+                                <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
+                                <button class="btn btn-success" type="submit">Search</button>
+                            </form>
+                            <!-- <a class="nav-link" href="#" style='font-size:20px;' data-bs-toggle="modal"
+                                data-bs-target="#login"><i class='fas fa-key'
+                                    style='font-size:25px;color:lightseagreen;'></i>search bar??+</i></a> -->
+                        </li>
+
+                        <li class="nav-item">
+                            <a class="btn btn-outline-warning" href="/logout" style='font-size:20px;'><i
+                                    class='fas fa-key' style='font-size:25px;color:darksalmon;'></i>Log Out</i></a>
+                        </li>
+                        <!-- <li class="nav-item">
+                        <a class="nav-link" href="{% url 'sign_up' %}" style='font-size:20px;'><i class='fas fa-server'
+                                style='font-size:25px;color:lightblue;'></i>Sign Up?</i></a>
+                    </li> -->
+
+                    </ul>
+                </div>
+
+            </div>
+        </nav>
+    </div>
+    <br>
+    <hr style="height:5px">
+
+    <!-- <a href="cart" class="btn btn-warning">Go To Cart{{count}}</a> -->
+
+    <div class="container">
+
+        <div class="p-5 text-center bg-image rounded-3"
+            style="background-image: url('{% static '/images/Resto-min.jpg' %}'); height:300px;">
+            <div data-aos="flip-left" data-aos-easing="ease-out-cubic" data-aos-duration="2000">
+
+                <div class="mask" style="background-color: rgba(0, 0, 0, 0.6);">
+                    <div class="d-flex justify-content-center align-items-center h-100">
+                        <div class="text-white">
+                            <h1 style="font-size: 65px;" class="mb-3"><strong>{{shopnam}},{{cty}} </strong></h1>
+                            <h3 class="mb-3">Welcome to the World of lazezz food </h3>
+
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+    </div>
+
+    <div class="container">
+        <h1></h1>
+        <hr style="height:3px"><br>
+        <div data-aos="fade-right" data-aos-offset="300" data-aos-easing="ease-in-sine">
+
+            <h1 id="top" align="center" style="letter-spacing: 3px;">🍸Our Menu...for you with<i class="animate-flicker"
+                    style="color:pink;">&nbsp;Love.</i> 🍹</h1><br><br>
+        </div>
+    </div>
+
+    <div class="container-fluid">
+        <hr style="height:3px">
+    </div>
+    
+    <style>
+        .alert {
+          padding: 20px;
+          background-color:lightblue;
+          color: red;
+          font-size:20px;
+        }
+        
+        .closebtn {
+          margin-left: 15px;
+          color: black;
+          font-weight: bold;
+          float: right;
+          font-size: 22px;
+          line-height: 20px;
+          cursor: pointer;
+          transition: 0.3s;
+        }
+        
+        .closebtn:hover {
+          color: black;
+        }
+    </style>
+
+    <div class="container" data-aos="fade-up-left">
+        <div class="alert">
+            <span class="closebtn" onclick="this.parentElement.style.display='none';">&times;</span> 
+            <div align="center"> <strong style="text-align:center;" class="animate-flicker">----Lazezz TIP----</strong><br>After You Add products to CART or BASKET please check Cart option on navbar...<i style="color:khaki;font-size: 25px;"
+                class="fas fa-shopping-cart"></i>
+            </div>
+           
+        </div>
+    </div>
+   
+
+   <br>
+
+    <div class="container">
+        <div class="row">
+            <br> <br>
+            <!-- style="width: 20rem;" -->
+            <!-- <form method="POST" action=""> -->
+
+            {% for fl in foodl %}
+            <div class="card col-md-4 m-3 p-1" style="width: 25rem;" id={{fl.fid}}>
+                <div data-aos="zoom-in">
+                    <img src="media/{{ fl.fimg }}" class="card-img-top" align="center" alt="food-image" width="300px"
+                        height="300px">
+                </div>
+                <div class="card-body">
+                    <div data-aos="flip-down" data-aos-duration="1800">
+                        <h5 id="restnam" class="card-title">{{ fl.fname }}</h5>
+                        <p id="restcon" class="card-text"><span style="font-size:20px; font-weight:600;">Ratings:-
+                            </span>{{fl.f_rate}}<i class="fa fa-star text-warning" aria-hidden="true"></i></p>
+                        <p id="restcon" class="card-text"><span style="font-size:25px; font-weight:600;">Price:-
+                            </span>&#8377&nbsp;{{fl.price}}</p>
+                        {% if fl.avail == 1 %}
+                        <p id="restcon" class="card-text text-success animate-flicker"><span
+                                style="font-size:20px; font-weight:600;">Avaliable</span></p>
+                        {% else %}
+                        <p id="restcon" class="card-text text-danger"><span
+                                style="font-size:25px; font-weight:600;">Oops!!Sorry,Not Avaliable!!
+                            </span>&nbsp;😓</p>
+                        {% endif %}
+
+                        {% if fl.avail == 1%}
+                        <div class="card-footer">
+                            {% if fl|is_in_cart:request.session.cart %}
+                            <div class="row">
+                                <form action="" method="POST" class="col-2">
+                                    {% csrf_token %}
+                                    <input type="submit" value="-" class="col-2 btn btn-block btn-secondary">
+                                    <input hidden type="number" name="food_id" value="{{fl.fid}}" />
+                                    <input hidden type="text" value="True" name="remove">
+                                </form>
+                                <div class="text-center col">{{fl|cart_quantity:request.session.cart}} in cart</div>
+                                <form action="" method="POST" class="col-2">
+                                    {% csrf_token %}
+                                    <input type="hidden" name="food_id" value="{{fl.fid}}" />
+                                    <input type="submit" value="+" class="btn btn-block btn-secondary">
+                                </form>
+
+                            </div>
+                            {% else %}
+                            <form method="POST" action="#{{fl.fid}}">
+                                {% csrf_token %}
+                                <input type="hidden" name="food_nam" value="{{fl.fname}}" />
+                                <input type="hidden" name="shop_id" value="{{sid}}" />
+                                <input type="hidden" name="food_id" value="{{fl.fid}}" />
+                                <input type="hidden" id="custId" name="custId" value="">
+                                <div align="center" class="d-grid gap-2">
+                                    <button id="choserest" class="btn btn-dark"><strong
+                                            style="color:orange;font-family: 'Poltawski Nowy', serif;">Add to
+                                            cart</strong></button>
+                                </div>
+                            </form>
+                            {% endif %}
+
+
+                        </div>
+                        {% else %}
+
+                        <div class="card-footer">
+                            {% if fl|is_in_cart:request.session.cart %}
+                            <div class="row">
+                                <form action="" method="POST" class="col-2">
+                                    {% csrf_token %}
+                                    <input type="submit" value="-" class="col-2 btn btn-block btn-secondary">
+                                    <input hidden type="number" name="food_id" value="{{fl.fid}}" />
+                                    <input hidden type="text" value="True" name="remove">
+                                </form>
+                                <div class="text-center col">{{fl|cart_quantity:request.session.cart}} in cart</div>
+                                <form action="" method="POST" class="col-2">
+                                    {% csrf_token %}
+                                    <input type="hidden" disabled name="food_id" value="{{fl.fid}}" />
+                                    <input type="submit" disabled value="+" class="btn btn-block btn-secondary">
+                                </form>
+
+                            </div>
+                            {% else %}
+                            <form method="POST" action="#{{fl.fid}}">
+                                {% csrf_token %}
+                                <input type="hidden" name="food_nam" value="{{fl.fname}}" />
+                                <input type="hidden" name="shop_id" value="{{sid}}" />
+                                <input type="hidden" name="food_id" value="{{fl.fid}}" />
+                                <input type="hidden" id="custId" name="custId" value="">
+                                <div align="center" class="d-grid gap-2">
+                                    <button id="choserest" disabled class="btn btn-dark"><strong
+                                            style="color:orange;font-family: 'Poltawski Nowy', serif;">Add to
+                                            cart</strong></button>
+                                </div>
+                            </form>
+                            {% endif %}
+
+
+                        </div>
+
+                        {% endif %}
+
+                        <!-- <div align="center" class="d-grid gap-2">
+                        <button id="choserest" class="btn btn-dark" onclick="check(parseInt('{{ fl.avail }}'), '{{fl.fname}}', parseInt('{{sid}}'), parseInt('{{fl.fid}}'))">
+                            <strong style="color:orange;font-family: 'Poltawski Nowy', serif;">Add to cart</strong></button>
+                            <script>
+                                function check(avail, fname, sd, fd){
+                                    console.log(avail)
+                                    var ck = document.getElementById("choserest");
+                                    
+                                    if(avail == 0){
+                                        ck.setAttribute('disabled', true)
+                                        // const ck = document.querySelector('.btn-dark');
+                                        // ck.disabled = true;
+
+                                    }else{
+                                        console.log(fname)
+                                        window.open('/rest_sel?name='+fname+"&shid="+sd+"&fhid="+fd+"&city="+'{{cty}}'+"&sid="+parseInt('{{sid}}')+"&sname="+'{{shopnam}}'+'&rimg={{rimg}}','_self')
+                                    }
+                                }
+                                
+                            </script>
+                    </div> -->
+
+                    </div>
+                </div>
+
+            </div>
+            {% endfor %}
+            <!-- </form> -->
+        </div>
+    </div>
+
+
+
+    <!-- Footer Start -->
+
+    <div id="foot" class="container-fluid bg-* text-light footer pt-5 mt-5 wow fadeIn" data-wow-delay="0.1s">
+        <div class="container py-5">
+            <div class="row g-5">
+                <div class="col-lg-3 col-md-6">
+                    <h2 style="font-family: 'Dancing Script', cursive;font-style: oblique; font-size: 35px;"
+                        class="section-title ff-secondary text-start text-warning fw-normal mb-4">
+                        Lazezz...Pvt.Limited
+                    </h2>
+                    <a class="btn btn-warning mb-3" data-bs-toggle="modal" data-bs-target="#Aboutus">About Us</a>
+                    <a class="btn btn-warning mb-3" data-bs-toggle="modal" data-bs-target="#Contactus" href="">Contact
+                        Us</a><br>
+                    <a class="btn btn-warning mb-3" data-bs-toggle="modal" data-bs-target="#Reservation"
+                        href="">Reservation</a><br>
+                    <a class="btn btn-warning mb-3" data-bs-toggle="modal" data-bs-target="#Privacy" href="">Privacy
+                        Policy</a><br>
+                    <a class="btn btn-warning mb-3" data-bs-toggle="modal" data-bs-target="#TC" href="">Terms &
+                        Conditions</a><br><br>
+                </div>
+                <div class="col-lg-3 col-md-6">
+                    <h2 style="font-family: 'Dancing Script', cursive;font-style: oblique;font-size: 30px;"
+                        class="section-title ff-secondary text-start text-dark fw-normal mb-4">Contact</h2>
+                    <p class="mb-2"><i class="fa fa-map-marker-alt me-3"></i>LAzezzz..pvt.Limited (KANPUR)</p>
+                    <p class="mb-2"><i class="fa fa-phone-alt me-3"></i>+91-9870533166</p>
+                    <p class="mb-2"><i class="fa fa-envelope me-3"></i>info@lazezz.com</p>
+                    <!-- <div class="d-flex pt-2">
+                    <a class="btn btn-outline-light btn-social" href=""><i class="fab fa-twitter"></i></a>
+                    <a class="btn btn-outline-light btn-social" href=""><i class="fab fa-facebook-f"></i></a>
+                    <a class="btn btn-outline-light btn-social" href=""><i class="fab fa-youtube"></i></a>
+                    <a class="btn btn-outline-light btn-social" href=""><i class="fab fa-linkedin-in"></i></a>
+                </div> -->
+                </div>
+                <div class="col-lg-3 col-md-6">
+                    <h2 style="font-family: 'Dancing Script', cursive; font-style: oblique;"
+                        class="section-title ff-secondary text-start text-dark fw-normal mb-4">Opening</h2>
+                    <h5 class="text-light fw-normal">Monday - Saturday</h5>
+                    <p>09:00AM - 09:00PM</p>
+                    <h5 class="text-light fw-normal">Sunday</h5>
+                    <p>10:00AM - 08:00PM</p>
+                </div>
+                <div class="col-lg-3 col-md-6">
+                    <h2 style="font-family: 'Dancing Script', cursive;font-style: oblique;"
+                        class="section-title ff-secondary text-start text-dark fw-normal mb-4">🍕LAzezz On-</h2>
+
+                    <div data-aos="fade-up" data-aos-duration="3000">
+
+                        <a href=""><img src="{% static '/images/logo1.jpg' %}" width="200px" /></a>
+                        <br><br>
+                        <a href=""><img src="{% static '/images/logo2.jpg' %}" width="200px" /></a>
+                    </div>
+                    <!-- <p>Dolor amet sit justo amet elitr clita ipsum elitr est.</p>
+                <div class="position-relative mx-auto" style="max-width: 400px;">
+                    <input class="form-control border-primary w-100 py-3 ps-4 pe-5" type="text"
+                        placeholder="Your email">
+                    <button type="button"
+                        class="btn btn-primary py-2 position-absolute top-0 end-0 mt-2 me-2">SignUp</button>
+                </div> -->
+                </div>
+            </div>
+        </div>
+
+        <hr style="color:black;height: 12px;">
+        <div class="container">
+            <div class="copyright">
+                <div class="row">
+                    <div class="col-md-6 text-center text-md-start mb-3 mb-md-0">
+                        &copy; <a style="font-size: 20px;font-family:Georgia, 'Times New Roman', Times, serif ;"
+                            class="border-bottom" href="#">LAzezzz @adonis </a> | By continuing past this page, you
+                        agree
+                        to our Terms of Service, Cookie Policy, Privacy Policy and Content Policies. All trademarks are
+                        properties of their respective owners. 2023 © Lazezzz™ Ltd. | All rights reserved.
+                    </div>
+                    <div class="col-md-6 text-center text-md-end">
+                        <div class="footer-menu">
+                            <a style="font-family: Arial, Helvetica, sans-serif;font-size: 15px;   border-right: 2px solid white; padding: 2px 9px 2px 9px;"
+                                href="">Home</a>
+                            <a style="font-family: Arial, Helvetica, sans-serif;font-size: 15px;   border-right: 2px solid white; padding: 2px 9px 2px 9px;"
+                                href="">Cookies</a>
+                            <a style="font-family: Arial, Helvetica, sans-serif;font-size: 15px;   border-right: 2px solid white; padding: 2px 9px 2px 9px;"
+                                href="">Help</a>
+                            <a style="font-family: Arial, Helvetica, sans-serif;font-size: 15px;   border-right: 2px solid white; padding: 2px 9px 2px 9px;"
+                                href="">FAQ's</a>
+
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Back to Top -->
+        <a href="#" class="btn btn-lg btn-secondary btn-lg-square back-to-top"><i class="bi bi-arrow-up"></i></a>
+    </div>
+    {% include 'modalfooter.html' %}
+
+
+    <script>
+        var x = document.getElementById('minus');
+        var y = document.getElementById('show');
+        var z = document.getElementById('plus');
+
+
+        const plus = document.querySelector('.plus'),
+            minus = document.querySelector('.minus'),
+            num = document.querySelector('.show');
+
+        let a = 1;
+        plus.addEventListener("click", () => {
+            a++;
+            console.log("a");
+        });
+    </script>
+
+    <script>
+
+        `use strict`
+        var datetime = new Date().toLocaleString();;
+        console.log(datetime);
+        document.getElementById("time").textContent = datetime; //it will print on html page
+
+    </script>
+
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+    <script>
+        AOS.init();
+    </script>
+
+    <!-- Optional JavaScript; choose one of the two! -->
+
+    <!-- Option 1: Bootstrap Bundle with Popper -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM"
+        crossorigin="anonymous"></script>
+
+    Option 2: Separate Popper and Bootstrap JS -->
+
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.2/dist/umd/popper.min.js"
+        integrity="sha384-IQsoLXl5PILFhosVNubq5LC7Qb9DXgDA9i+tQ8Zj3iwWAwPtgFTxbJ8NT4GN1R8p"
+        crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.min.js"
+        integrity="sha384-cVKIPhGWiC2Al4u+LWgxfKTRIcfu0JTxR+EQDz/bgldoEyl4H0zUF0QKbrJ0EcQF"
+        crossorigin="anonymous"></script>
+
+</body>
+
+</html>

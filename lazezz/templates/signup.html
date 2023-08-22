@@ -1,0 +1,90 @@
+{% include 'header.html' %}
+{% load static %}
+
+
+<style>
+    @import url('https://fonts.googleapis.com/css2?family=Abril+Fatface&display=swap');
+  </style>
+<div class="container">
+    <div>
+        <h2 style="font-size: 70px; color:wheat; text-align: center;font-family: 'Abril Fatface', cursive;"
+            style="color:gold">🍔🍟Welcome
+            to LAZEZZZ Family..,🍕</h2>
+        <h5 style="color:coral;">*Please Fill All The Details <br>*All fields are Compulsory</h5>
+    </div>
+    <br>
+    <br>
+    <div>
+        <form action="" method="POST" class="was-validated" enctype="multipart/form-data">
+            {% csrf_token %}
+            <div class="row">
+                <div class="col-sm-6">
+                    <div style="color:yellow; font-size:27px;" class="form-group">
+                        <label for="email">Customer Name. 👇:</label>
+                        <input type="text" class="form-control" id="email" name="nam" placeholder="Enter Name" required>
+                        <div class="valid-feedback">Valid</div>
+                        <div class="invalid-feedback">Please Fill Out This Field</div>
+                    </div>
+                </div>
+                <div class="col-sm-6">
+                    <div class="form-group" style="color:yellow; font-size:27px;">
+                        <label for="uname">Phone No. 👇:</label>
+                        <input type="text" class="form-control" id="uname" name="mob" placeholder="+91-(0000000000)"
+                            required>
+                        <div class="valid-feedback">Valid</div>
+                        <div class="invalid-feedback">Please Fill Out This Field</div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="row">
+                <div class="col-sm-4">
+                    <div class="form-group" style="color:yellow; font-size:27px;">
+                        <label for="pwd">Password 👇:</label>
+                        <input type="password" class="form-control" id="pwd" name="pw1" placeholder="Enter Password"
+                            required>
+                        <div class="valid-feedback">Valid</div>
+                        <div class="invalid-feedback">Please Fill Out This Field</div>
+                    </div>
+                </div>
+                <div class="col-sm-4">
+                    <div class="form-group" style="color:yellow; font-size:27px;">
+                        <label for="pwd">Re-Enter Password 👇:</label>
+                        <input type="password" class="form-control" id="pwd" name="pw2" placeholder="Re-Enter Password"
+                            required>
+                        <div class="valid-feedback">Valid</div>
+                        <div class="invalid-feedback">Please Fill Out This Field</div>
+                    </div>
+                </div>
+
+                <div class="col-sm-4">
+                    <div class="form-group form-check" align="center" style="color:yellow; font-size:23px;">
+                        <label class="form-check-label">Profile Pic<input type='file' name='upCtrl'/>
+                            <div class="valid-feedback">Not Compulsary</div>
+                
+                        </label>
+                    </div>
+                </div>
+            </div>
+
+            <div class="form-group form-check" align="center" style="color:yellow; font-size:27px;">
+                <label class="form-check-label"><input type="checkbox" class="form-check-input" required>I Agree To All
+                    Terms And Conditions
+                    <div class="valid-feedback">Valid</div>
+                    <div class="invalid-feedback">Please Check above</div>
+                </label>
+            </div>
+
+
+
+            <hr height="2px">
+            <div align="center">
+                <button type="submit" class="btn btn-outline-primary m-2"
+                    style="font-size:27px; font-family: 'Bruno Ace SC', cursive; ">Register</button>
+            </div>
+        </form>
+    </div>
+
+</div>
+
+{% include 'footer.html' %}

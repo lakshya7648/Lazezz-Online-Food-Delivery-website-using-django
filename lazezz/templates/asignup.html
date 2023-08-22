@@ -1,0 +1,308 @@
+<!doctype html>
+<!-- use of carousel- to move image -->
+<html lang="en">
+  {% load static %}
+  <head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<!-- helps to add new font style -->
+<link href="https://fonts.googleapis.com/css2?family=DynaPuff&display=swap" rel="stylesheet">
+<!-- helps to add animation -->
+<link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">    
+
+<title>Sign up</title>
+<script>
+
+
+        function validate_password(){
+            var pd = document.getElementById('pass').value;
+            var lc = 0, num = 0, len = pd.length, sc = 0, uc = 0;
+            for(var i = 0; i < len; i++){
+                if(pd[i] >='a' && pd[i] <= 'z'){
+                    lc++;
+                }
+                else if(pd[i] >='A' && pd[i] <= 'Z'){
+                    uc++;
+                }
+                else if(pd[i] =='@' || pd[i] == '#' || pd[i] == '$'){
+                    sc++;
+                }
+                else if(pd[i] >=0 && pd[i] <= 9){
+                    num++;
+                }
+            }
+            console.log('lc='+lc, 'num = '+num, 'sc='+sc,'uc = '+ uc)
+            if((lc>3) && (uc>=1) && (sc>=1) && (num>=1))
+            {
+                document.getElementById('pass').style.borderColor="green";
+            }else
+            {
+                document.getElementById('pass').style.borderColor="red";
+            }
+        }
+        function showPd(){
+            var state = document.getElementById('show');
+            if(state.checked){
+                document.getElementById('pass').type='text';
+            }else{
+                document.getElementById('pass').type='password';
+            }
+        }
+</script>
+
+
+
+    <style type="text/css">
+      
+      .container{
+        margin:100px;
+        display:flex;
+        flex-wrap:wrap;
+        justify-content:space-around;
+    }
+    
+    #uname, #pass{
+        margin-bottom:20px;
+        width:100%;
+        padding:10px;
+        border:1px solid blue;
+        border-radius:4px;
+        font-family:system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+        font-size:20px;
+        outline:none;
+    }
+    #uid, #mob{
+        margin-bottom:20px;
+        width:100%;
+        padding:10px;
+        border:1px solid blue;
+        border-radius:4px;
+        font-family:system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+        font-size:20px;
+        outline:none;
+    }
+    #show{
+        font-size:18px;
+        font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        
+    }
+    .btn{
+        display:flex;
+        justify-content: center;
+    }
+    #registerbtn{
+        background:linear-gradient(lightblue, rgb(8, 8, 158));
+        color:white;
+        padding:10px;
+        font-size:20px;
+        font-family:'callibri';
+        border:none;
+        border-radius:5px;
+        cursor:pointer;
+    }
+    #registerbtn:hover{
+        background:linear-gradient(rgb(8, 8, 158), green)
+    }
+
+    h1
+         { 
+          font-family: 'DynaPuff', cursive;
+          text-align: center;
+          align-content: center;
+          background-color: darkgoldenrod;
+          /* copying the css part also to provide the styling to the assigned font */
+          }
+
+
+          .blink{
+          width: 150px;
+          height: 50px;
+          background-color: red;
+          animation: blink 1s infinite;
+        }
+        @keyframes blink{
+          50%{
+            opacity: 0;
+          }
+        }
+
+    </style>
+  </head>
+  <body style="background-color: brown;">
+    
+    
+   
+    <!-- COLLAPISABLE BAR -->
+    
+    {%include 'a_header.html'%}
+    
+
+   
+    <section style="margin-top: 10px; margin-left: 5px;">
+
+    <div class="container-fluid">
+        <div class="row" >
+            <div class="col-lg-3" data-aos="fade-right" style="border: 2px solid yellow; padding-top: 5px;">
+                <h4 align="center">Register</h4>
+        <form action="" border="4px solid black" method="post" enctype="multipart/form-data">
+          {% csrf_token %} 
+            <div class="form-group">
+                <label for="text">Full name</label>
+                <input type="text" class="form-control" id="unm" placeholder="Enter name" name="unm" required>
+
+
+                <label for="uid">Email</label>
+                <input type="email" class="form-control" id="id" placeholder="Enter email" name="id" required>
+
+                <label for="mob">Mobile no.</label>
+                <input type="number" class="form-control" id="mob" placeholder="Enter mobile number" name="mob" required>
+                
+
+                <label for="pass">Password</label>
+                <input type="password" class="form-control" id="pass" placeholder="Enter password" name="pass" onchange="validate_password()" required>
+                <label for="show"><input type="checkbox" id="show" onchange="showPd()">Show Password</label>
+                <br>
+                <div class="btn">
+                    <input type="submit" value="Register" id="registerbtn">
+                </div>
+                <p align="center">Already an admin??? <a href="a_login">Login</a></p>
+            </div>
+        </form>
+        </div>
+
+
+        <div class="col-lg-3">
+
+            
+        </div>
+
+
+        <div class="col-lg-6" data-aos="fade-right">
+
+            <section style="margin-top: 20px;">
+
+
+
+                <div class="container-fluid">
+              
+                <div id="demo" class="carousel slide" data-ride="carousel" style="width:100%;" data-interval="2000"> 
+                  <!-- data interval is used to switch slides with timing. -->
+                  <ul class="carousel-indicators">
+                    <li data-target="#demo" data-slide-to="0" class="active"></li>
+                    <li data-target="#demo" data-slide-to="1"></li>
+                    <li data-target="#demo" data-slide-to="2"></li>
+                  </ul>
+              
+
+                <div class="carousel-inner">
+                  <div class="carousel-item active">
+                    <img src="{% static 'images/b.webp' %}" class="img-fluid" style="width:800px;height:500px;">
+                  </div>
+              
+                  <div class="carousel-item">
+                    <img src="{% static 'images/p.jpg' %}" style="width:800px;height:500px;" class="img-fluid">
+                  </div>
+              
+                  <div class="carousel-item">
+                    <img src="{% static 'images/c.webp' %}" style="width:800px;height:500px;" class="img-fluid">
+                  </div>
+                    
+              
+                  <a class="carousel-control-prev" href="#demo" data-slide="prev">
+                    <span class="carousel-control-prev-icon" ></span>
+                </a>
+              
+                <a class="carousel-control-next" href="#demo" data-slide="next">
+                  <span class="carousel-control-next-icon"></span>
+                </a>
+                 
+              
+              </div>
+                </div>
+              </div>              
+              </section>
+            </div>
+
+              </div>            
+  </div>
+</section>
+
+<section style="margin-top: 10px;">
+  <div data-aos= "fade-right">
+<h1>Top Restaurants in Kanpur</h1>
+  </div>
+</section>
+<!-- cards  -->
+<section style="margin-top: 5px;">
+  <div class="container-fluid pt-5" data-aos="fade-up">
+    <div class="row"> 
+      
+      <div class="col-lg-4">
+          <div class="card" style="width:100%;" >
+              <img class="card-img-top" src="{% static 'images/p.jpg' %}" alt="card image"  height="300px">
+              <div class="card-body" style="font-family:'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif">Top Restaurant
+                <div class="card-title">Haveli Restaurant</div>
+                <p class="card-text">One of the best restaurants around in Kanpur.<br> Super dine-in facility with great food and staff.</p>
+                <a href="#" class="btn btn-block"><u>See Details</u></a>
+                </div>
+          </div>
+      </div>
+  
+       
+      <div class="col-lg-4">
+        <div class="card" style="width:100%;" >
+            <img class="card-img-top" src="{% static 'images/p.jpg' %}" alt="card image"  height="300px">
+            <div class="card-body" style="font-family:'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif">Top Restaurant
+              <div class="card-title">Haveli Restaurant</div>
+              <p class="card-text">One of the best restaurants around in Kanpur.<br> Super dine-in facility with great food and staff.</p>
+              <a href="#" class="btn btn-block"><u>See Details</u></a>
+              </div>
+        </div>
+    </div>
+
+    <div class="col-lg-4">
+      <div class="card" style="width:100%;" >
+          <img class="card-img-top" src="{% static 'images/p.jpg' %}" alt="card image"  height="300px">
+          <div class="card-body" style="font-family:'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif">Top Restaurant
+            <div class="card-title">Haveli Restaurant</div>
+            <p class="card-text">One of the best restaurants around in Kanpur.<br> Super dine-in facility with great food and staff.</p>
+            <a href="#" class="btn btn-block"><u>See Details</u></a>
+            </div>
+      </div>
+  </div>
+
+      
+  
+        
+  
+  
+  </div>
+  </div>
+
+
+
+</section> 
+   
+    
+  
+
+    <!-- Optional JavaScript -->
+    <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+    <!-- javascript for animation   -->
+<script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+<!-- to be used for animation along with javascript.  -->
+<script>
+  AOS.init();
+</script>
+    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.12.9/dist/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+  
+  </body>
+</html>

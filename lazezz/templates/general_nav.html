@@ -1,0 +1,70 @@
+{% load static %}
+    
+    <div data-aos="flip-up">
+        <nav id="logo" class="navbar navbar-expand-lg navbar-light bg-dark">
+            <div class="container">
+                <a class="navbar-brand" href="#">
+                    <b id="sp" style="color:gold;font-size:55px; font-family: 'Bruno Ace SC', cursive; ;"><i
+                            class="fa fa-utensils me-3"></i>Lazezzz....
+                    </b>
+
+                    <marquee id="slogan" behavior="alternate" direction="" scrollamount="7"
+                        style="color:hotpink;font-size: 25px;font-family: 'Revalia', cursive;">Bs..khate..jao..😆
+                    </marquee>
+
+                </a>
+
+
+                <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
+                    data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent"
+                    aria-expanded="false" aria-label="Toggle navigation">
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                    <span></span>
+
+                </button>
+                <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                    <ul class="navbar-nav ms-auto mb-2 mb-lg-0">
+
+                        <li class="nav-item">
+
+                            <a class="nav-link" style='font-size:20px;'><i class='fas fa-home'
+                                    style='font-size:25px;color:red;'></i><strong>नमस्ते,</strong><strong
+                                    style="color:yellow; text-shadow: 2px 2px black; font-size: 25px;">{{ request.session.sess_nm }}</strong></i>
+                                <br>
+                                <i id="time"></i>
+                                
+                            </a>
+                        </li>
+                        <li class="nav-item">
+
+                            <form class="d-flex nav-link">
+                                <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
+                                <button class="btn btn-success" type="submit">Search</button>
+                              </form>
+                            <!-- <a class="nav-link" href="#" style='font-size:20px;' data-bs-toggle="modal"
+                                data-bs-target="#login"><i class='fas fa-key'
+                                    style='font-size:25px;color:lightseagreen;'></i>search bar??+</i></a> -->
+                        </li>
+
+                        <style>
+                            @import url('https://fonts.googleapis.com/css2?family=Instrument+Sans:wght@600&display=swap');
+                          </style>
+                        <li class="nav-item">
+                            <a class="btn btn-outline-warning"  href="/logout" style="font-size:20px;font-family: 'Instrument Sans', sans-serif;"><i class='fas fa-key' 
+                                    style="font-size:25px;color:darksalmon;"></i>Log Out</i></a>
+                        </li>
+                        <!-- <li class="nav-item">
+                        <a class="nav-link" href="{% url 'sign_up' %}" style='font-size:20px;'><i class='fas fa-server'
+                                style='font-size:25px;color:lightblue;'></i>Sign Up?</i></a>
+                    </li> -->
+
+                    </ul>
+                </div>
+
+            </div>
+        </nav>
+    </div>
+    <br>
+    <hr style="height:5px">

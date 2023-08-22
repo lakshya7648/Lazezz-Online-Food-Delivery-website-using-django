@@ -1,0 +1,15 @@
+.head{
+    font-size:50px;
+}
+#bh,#a{
+    font-size: 40px;
+    font-family:Georgia, 'Times New Roman', Times, serif ;
+}
+#bc{
+    font-size: 35px;
+}
+#a:hover{
+    font-size: 45px;
+    color: yellow;
+}
+
